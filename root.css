@@ -1,0 +1,61 @@
+:root {
+    --font-family: "Montserrat", sans-serif;
+    --black: rgba(43, 42, 41, 1);
+    --black-1: rgba(79, 79, 79, 1);
+
+    --white: rgba(255, 255, 255, 1);
+    --red: rgba(227, 30, 36, 1);
+
+
+    --font-weight-600: 600;
+    --font-weight-500: 500;
+    --font-style: SemiBold;
+
+    --line-height-22: 22px;
+    --line-height-35: 35px;
+    --line-height: 100%;
+    --letter-spacing: 0%;
+
+    --font-size-46: 46px;
+    --font-size-24: 24px;
+    --font-size-16: 16px;
+    --font-size-15: 15px;
+    --font-size-20: 20px;
+
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
+    font-style: var(--font-style);
+}
+
+button,
+a {
+    all: unset;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.red {
+    color: var(--red);
+}
+
+.active {
+    text-decoration: underline (--red);
+}
