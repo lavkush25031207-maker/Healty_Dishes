@@ -56,7 +56,8 @@ footer {
     font-size: 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    column-gap: 25px;
 }
 
 .footer-child i {
