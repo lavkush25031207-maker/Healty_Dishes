@@ -1,0 +1,123 @@
+.media-parent {
+    width: 90%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    column-gap: 20px;
+}
+
+.media-child {
+    width: 279px;
+    height: 588px;
+    opacity: 1;
+    object-fit: cover;
+}
+
+.media-child img {
+    height: 99%;
+}
+
+footer {
+    margin-top: 50px;
+    padding-top: 50px;
+    width: 100%;
+    height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-image: url("../images/footer1.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.footer-parent {
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-left: 20px;
+    column-gap: 40px;
+}
+
+.footer-child {
+    width: 50%;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.footer-icon-row {
+    width: 80%;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-child i {
+    color: var(--red);
+    /* font-size: 20px; */
+}
+
+.footer-child ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.footer-child ul li{
+    display: flex;
+    align-items: baseline;
+     font-size: 12px;
+}
+
+.footer-child img {
+    width: 159px;
+    height: 179px;
+    opacity: 1;
+}
+
+.footer-child button {
+    width: 60%;
+    padding: 15px 20px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.footer-parent> :nth-child(-n+2) {
+    display: none;
+}
+
+.copywrite {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 30px;
+}
+
+.copy-row {
+    width: 80%;
+    text-align: center;
+    color: var(--white);
+    font-size: var(--font-size-15);
+    font-weight: 200;
+    line-height: 22px;
+}
+
+@media screen and (min-width:767px) {
+    .footer-parent> :nth-child(-n+2) {
+        display: block;
+    }
+}
