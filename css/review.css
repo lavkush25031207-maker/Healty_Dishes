@@ -1,3 +1,6 @@
+.heading{
+    width: 90%;
+}
 .heading-p p {
     font-weight: var(--font-weight-500);
     font-size: var(--font-size-24);
@@ -34,6 +37,7 @@
 
 .review-child p{
     color: var(--black-1);
+    line-height: 24px;
 }
 
 @media screen and (min-width:767px) {
