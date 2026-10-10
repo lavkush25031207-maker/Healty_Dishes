@@ -111,3 +111,26 @@ CORS_ALLOWED_ORIGINS=https://your-project.vercel.app
 ```
 
 For multiple frontend domains, use a comma-separated list. Save the environment settings and redeploy the API. Future pushes to `main` automatically redeploy both connected services.
+
+### 5. Deploy the same frontend on GitHub Pages
+
+The repository includes `.github/workflows/deploy-pages.yml`. It builds the frontend with the `/Healty_Dishes/` base path while Vercel continues using `/`.
+
+1. Open GitHub repository **Settings > Secrets and variables > Actions > Variables**.
+2. Create a repository variable named `VITE_API_URL` with this value:
+
+```text
+https://healthy-dishes-api.onrender.com/api
+```
+
+3. Open **Settings > Pages** and set **Source** to `GitHub Actions`.
+4. Open the **Actions** tab and run **Deploy frontend to GitHub Pages**, or push a commit to `main`.
+5. The frontend will be available at `https://YOUR_USERNAME.github.io/Healty_Dishes/`.
+
+Update the Render API environment so both frontend origins are allowed:
+
+```env
+CORS_ALLOWED_ORIGINS=https://your-project.vercel.app,https://YOUR_USERNAME.github.io
+```
+
+Do not include `/Healty_Dishes/` in the GitHub CORS origin because a browser origin contains only the scheme and host.
