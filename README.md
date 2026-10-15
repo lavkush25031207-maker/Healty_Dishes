@@ -81,7 +81,7 @@ If `origin` already exists, use `git remote set-url origin <repository-url>`.
 
 1. Open Render and choose **New > Blueprint**.
 2. Connect this GitHub repository. Render reads `render.yaml` and creates the API and PostgreSQL database.
-3. When prompted for `CORS_ALLOWED_ORIGINS`, temporarily enter `https://example.vercel.app`.
+3. The Blueprint configures `CORS_ALLOWED_ORIGINS` for the GitHub Pages frontend.
 4. Wait for the API deployment and copy its URL, for example `https://healthy-dishes-api.onrender.com`.
 5. Verify `https://healthy-dishes-api.onrender.com/actuator/health` returns an `UP` status.
 6. Open the live Swagger UI at `https://healthy-dishes-api.onrender.com/swagger-ui.html`.
@@ -104,10 +104,10 @@ VITE_USE_LIVE_API=true
 
 ### 4. Connect frontend CORS
 
-Return to the Render API's environment settings and replace `CORS_ALLOWED_ORIGINS` with the exact Vercel URL:
+If you also deploy the frontend to Vercel, add its exact URL to `CORS_ALLOWED_ORIGINS` in Render:
 
 ```env
-CORS_ALLOWED_ORIGINS=https://your-project.vercel.app
+CORS_ALLOWED_ORIGINS=https://lavkush25031207-maker.github.io,https://your-project.vercel.app
 ```
 
 For multiple frontend domains, use a comma-separated list. Save the environment settings and redeploy the API. Future pushes to `main` automatically redeploy both connected services.
