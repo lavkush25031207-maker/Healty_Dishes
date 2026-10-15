@@ -32,10 +32,10 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci
       - name: Build GitHub Pages frontend
-        run: npm run build -- --base=/Healty_Dishes/
+        run: npm run build -- --base=/${{ github.event.repository.name }}/
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
-          VITE_USE_LIVE_API: "true"
+          VITE_USE_LIVE_API: ${{ vars.VITE_API_URL != '' }}
       - name: Add SPA fallback
         run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
