@@ -12,14 +12,9 @@ services:
         value: production
       - key: CORS_ALLOWED_ORIGINS
         value: https://lavkush25031207-maker.github.io
-      - key: DATABASE_URL
-        fromDatabase:
-          name: healthy-dishes-db
-          property: connectionString
-
-databases:
-  - name: healthy-dishes-db
-    plan: free
-    region: singapore
-    databaseName: healthy_dishes
-    user: healthy_dishes_user
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
