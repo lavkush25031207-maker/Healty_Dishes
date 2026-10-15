@@ -2,12 +2,13 @@ import { Clock, Plus } from 'lucide-react'
 import toast from 'react-hot-toast'
 import type { MenuItem } from '../types'
 import { useRestaurantStore } from '../store/useRestaurantStore'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function MenuCard({ item }: { item: MenuItem }) {
   const addToCart = useRestaurantStore((state) => state.addToCart)
   const add = () => { addToCart(item); toast.success(`${item.name} added to cart`) }
   return <article className="menu-card">
-    <div className="menu-image-wrap"><img src={item.imageUrl.startsWith('/') ? `${import.meta.env.BASE_URL}${item.imageUrl.slice(1)}` : item.imageUrl} alt={item.name} /><span className={`food-dot ${item.foodType.toLowerCase()}`} /></div>
+    <div className="menu-image-wrap"><img src={assetUrl(item.imageUrl)} alt={item.name} /><span className={`food-dot ${item.foodType.toLowerCase()}`} /></div>
     <div className="menu-card-body">
       <div className="menu-title-row"><h3>{item.name}</h3><strong>₹{item.price}</strong></div>
       <p>{item.description}</p>

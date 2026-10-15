@@ -1,6 +1,7 @@
 import { Minus, Plus, ShoppingBag, Trash2, X } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useRestaurantStore } from '../store/useRestaurantStore'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function CartDrawer() {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ export default function CartDrawer() {
       <div className="cart-items">
         {!cart.length && <div className="empty-cart"><ShoppingBag size={45} /><h3>Your cart is empty</h3><p>Add something fresh and delicious from our menu.</p></div>}
         {cart.map((item) => <div className="cart-item" key={item.id}>
-          <img src={item.imageUrl} alt="" />
+          <img src={assetUrl(item.imageUrl)} alt="" />
           <div><h4>{item.name}</h4><p>₹{item.price}</p><div className="quantity"><button onClick={() => updateQuantity(item.id, item.quantity - 1)}><Minus size={14} /></button><span>{item.quantity}</span><button onClick={() => updateQuantity(item.id, item.quantity + 1)}><Plus size={14} /></button></div></div>
           <button className="remove" onClick={() => removeFromCart(item.id)}><Trash2 size={17} /></button>
         </div>)}

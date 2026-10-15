@@ -1,5 +1,6 @@
 import { ArrowRight, CalendarDays, ChefHat, Leaf, ShoppingBag, Star, Timer } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { assetUrl } from '../utils/assetUrl'
 
 const features = [
   { icon: Leaf, title: 'Fresh every day', text: 'Locally sourced vegetables and mindful ingredients.' },
@@ -21,8 +22,6 @@ const reviews = [
   ['Kunal', 'The dim sums reached hot, the chilli oil was excellent and nothing felt overly greasy. Will order again.'],
   ['Lavkush', 'Comforting food, balanced flavours and genuinely helpful staff. Highly recommended for a relaxed dinner.'],
 ]
-
-const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
 export default function HomePage() {
   return <>

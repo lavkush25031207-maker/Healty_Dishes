@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, ShoppingBag, X } from 'lucide-react'
 import { useRestaurantStore } from '../store/useRestaurantStore'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -9,7 +10,7 @@ export default function Header() {
   const count = cart.reduce((sum, item) => sum + item.quantity, 0)
   const links = [['/', 'Home'], ['/menu', 'Menu'], ['/book-table', 'Book Room & Table'], ['/track-order', 'Track Order']]
   return <header className="site-header">
-    <Link className="brand" to="/"><img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Healthy Dishes" /><span><strong>Healthy</strong> Dishes</span></Link>
+    <Link className="brand" to="/"><img src={assetUrl('/images/logo.png')} alt="Healthy Dishes" /><span><strong>Healthy</strong> Dishes</span></Link>
     <nav className={mobileOpen ? 'nav open' : 'nav'}>
       {links.map(([to, label]) => <NavLink key={to} to={to} onClick={() => setMobileOpen(false)}>{label}</NavLink>)}
       <NavLink className="nav-cta" to="/menu" onClick={() => setMobileOpen(false)}>Order Now</NavLink>

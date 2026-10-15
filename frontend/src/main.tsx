@@ -1,15 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import App from './App'
 import './styles.css'
+import './base-path.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <App />
       <Toaster position="top-center" toastOptions={{ duration: 3500 }} />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )

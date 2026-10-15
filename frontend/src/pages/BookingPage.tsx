@@ -1,7 +1,8 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, type CSSProperties, useEffect, useState } from 'react'
 import { BedDouble, CalendarCheck, CheckCircle2, Clock3, Users, Utensils } from 'lucide-react'
 import { restaurantApi } from '../services/api'
 import type { AvailableTable, BookingRequest, BookingResponse } from '../types'
+import { assetUrl } from '../utils/assetUrl'
 import './BookingPage.css'
 import './BookingCategories.css'
 import './HallBooking.css'
@@ -62,7 +63,7 @@ export default function BookingPage() {
     setForm((current) => current.bookingPrice === spend ? current : { ...current, bookingPrice: spend })
   }, [form.bookingTime, form.reservationType, selectedRoom])
 
-  return <div className="booking-page room-booking-page">
+  return <div className="booking-page room-booking-page" style={{ '--booking-background': `url("${assetUrl('/images/img4.jpg')}")` } as CSSProperties}>
     <section className="reservation-intro page-width"><span className="eyebrow">Plan your visit</span><h1>Book Room & Table</h1><p>Choose your space first, then share your details to confirm the reservation.</p></section>
 
     <section className="space-selector page-width">
