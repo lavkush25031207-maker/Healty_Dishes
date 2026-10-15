@@ -63,7 +63,7 @@ The repository is prepared for this setup:
 
 - Frontend: Vercel
 - Backend API: Render Web Service
-- Database: External MySQL (Railway, Aiven, Clever Cloud, or another MySQL host)
+- Database: Render PostgreSQL
 
 ### 1. Push the repository to GitHub
 
@@ -77,24 +77,16 @@ git push -u origin main
 
 If `origin` already exists, use `git remote set-url origin <repository-url>`.
 
-### 2. Deploy the backend on Render
+### 2. Deploy the backend and database on Render
 
 1. Open Render and choose **New > Blueprint**.
-2. Connect this GitHub repository. Render reads `render.yaml` and creates the API service.
-3. Enter the MySQL provider values requested by the Blueprint:
+2. Connect this GitHub repository. Render reads `render.yaml` and creates the API and PostgreSQL database.
+3. The Blueprint configures `CORS_ALLOWED_ORIGINS` for the GitHub Pages frontend.
+4. Wait for the API deployment and copy its URL, for example `https://healthy-dishes-api.onrender.com`.
+5. Verify `https://healthy-dishes-api.onrender.com/actuator/health` returns an `UP` status.
+6. Open the live Swagger UI at `https://healthy-dishes-api.onrender.com/swagger-ui.html`.
 
-```env
-DB_URL=jdbc:mysql://YOUR_MYSQL_HOST:3306/healthy_dishes?useSSL=true&serverTimezone=UTC
-DB_USERNAME=YOUR_MYSQL_USERNAME
-DB_PASSWORD=YOUR_MYSQL_PASSWORD
-```
-
-4. The Blueprint configures `CORS_ALLOWED_ORIGINS` for the GitHub Pages frontend.
-5. Wait for deployment and copy its URL, for example `https://healthy-dishes-api.onrender.com`.
-6. Verify `https://healthy-dishes-api.onrender.com/actuator/health` returns an `UP` status.
-7. Open Swagger UI at `https://healthy-dishes-api.onrender.com/swagger-ui.html`.
-
-Both production and local development use MySQL.
+The production profile uses PostgreSQL. Local development continues to use MySQL.
 
 ### 3. Deploy the frontend on Vercel
 
